@@ -1,26 +1,17 @@
 class CardView
-  attr_reader :card
-
-  def initialize(card)
-    @card = card
+  def display_definition(card)
+    puts definition(card)
   end
 
-  def display_definition
-    puts definition
-  end
-
-  def definition
+  def definition(card)
     <<-STRING
 
 
-#{@card.definition}
+#{card.definition}
 
 
 Answer:
 STRING
   end
 
-  def set_card(card)
-    @card = card
-  end
 end
