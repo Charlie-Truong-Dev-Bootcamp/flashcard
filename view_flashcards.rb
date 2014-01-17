@@ -6,18 +6,21 @@ class CardView
   end
 
   def display_definition
-    puts "#{@card.definition_only}"
+    puts definition
   end
 
-  def prompt_user
-    puts "Make a guess"
+  def definition
+    <<-STRING
+
+
+#{@card.definition}
+
+
+Answer:
+STRING
   end
 
-  def try_again
-    puts "Try again!"
-  end
-
-  def correct
-    puts "Correct!\n"
+  def set_card(card)
+    @card = card
   end
 end
