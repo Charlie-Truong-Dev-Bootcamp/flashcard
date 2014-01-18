@@ -11,25 +11,31 @@ class Controller
 
   def play    
     show_new_card
-    input = String.new
+    input = String.new 
     
+    hits = 0
 
-    while input != 'quit' && @deck.has_cards?
+    while hits <4
+
       input = gets.chomp
-      case current_card.correct_answer?(input)
-        when true                         
+      case 
+        when current_card.correct_answer?(input) 
+          hits += 1                       
           correct
-          show_new_card
+          show_new_card if hits < 4
+        when input == "quit"
+          return
         else
           try_again
           show_same_card
       end
-    end
 
+    end
     win
     goodbye
   end
 
+  
 
 
   def draw_random_card
