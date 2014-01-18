@@ -10,20 +10,22 @@ class Controller
   end
 
   def play    
+    initial_length = @deck.cards.length
     show_new_card
     input = String.new 
     
     hits = 0
 
-    while hits <4
+    while hits < initial_length
 
       input = gets.chomp
       case 
         when current_card.correct_answer?(input) 
           hits += 1                       
           correct
-          show_new_card if hits < 4
+          show_new_card if hits < initial_length
         when input == "quit"
+          goodbye
           return
         else
           try_again
